@@ -28,7 +28,7 @@ const storeProfileSchema = z.object({
   description: z.string().nullable(),
 })
 
-type StoreProfileType = z.infer<typeof storeProfileSchema>
+type StoreProfileSchema = z.infer<typeof storeProfileSchema>
 
 export function StoreProfileDialog() {
   const queryClient = useQueryClient()
@@ -43,7 +43,7 @@ export function StoreProfileDialog() {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<StoreProfileType>({
+  } = useForm<StoreProfileSchema>({
     resolver: zodResolver(storeProfileSchema),
     values: {
       name: managedRestaurant?.name ?? '',
@@ -54,7 +54,7 @@ export function StoreProfileDialog() {
   function updateManagedRestaurantCache({
     name,
     description,
-  }: StoreProfileType) {
+  }: StoreProfileSchema) {
     const cached = queryClient.getQueryData<GetManagedRestaurantResponse>([
       'managed-restaurant',
     ])
@@ -87,7 +87,7 @@ export function StoreProfileDialog() {
     },
   })
 
-  async function handleUpdateProfile(data: StoreProfileType) {
+  async function handleUpdateProfile(data: StoreProfileSchema) {
     try {
       await updateProfileFn({
         name: data.name,
