@@ -9,12 +9,12 @@ interface OrderStatusProps {
   status: OrderStatus
 }
 
-const orderStatusMap: Record<OrderStatus, string> ={
+const orderStatusMap: Record<OrderStatus, string> = {
   pending: 'Pendente',
   canceled: 'Cancelado',
   delivered: 'Entregue',
   delivering: 'Em entrega',
-  processing: 'Em preparo'
+  processing: 'Em preparo',
 }
 
 export function OrderStatus({ status }: OrderStatusProps) {
@@ -36,7 +36,9 @@ export function OrderStatus({ status }: OrderStatusProps) {
         <span className="h-2 w-2 rounded-full bg-amber-500" />
       )}
 
-      <span className="font-medium text-muted-foreground">{orderStatusMap[status]}</span>
+      <span className="font-medium text-muted-foreground">
+        {orderStatusMap[status]}
+      </span>
     </div>
   )
 }

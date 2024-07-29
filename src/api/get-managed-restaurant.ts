@@ -7,10 +7,12 @@ export interface GetManagedRestaurantResponse {
   updatedAt: Date | null
   description: string | null
   managerId: string | null
-} 
+}
 
 export async function getManagedRestaurant() {
-  const response = await api.get<GetManagedRestaurantResponse>('/managed-restaurant')
+  const response = await api.get<GetManagedRestaurantResponse>(
+    '/managed-restaurant',
+  )
 
   return response.data
 }

@@ -22,6 +22,7 @@ export default [
 
     rules: {
       'simple-import-sort/imports': 'error',
+      '@typescript-eslint/no-unsafe-declaration-merging': 'off',
     },
   },
 ]
