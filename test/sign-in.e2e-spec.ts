@@ -11,8 +11,6 @@ test('sign in successfully', async ({ page }) => {
   )
 
   expect(toast).toBeVisible()
-
-  // await page.waitForTimeout(2000) // bug fix alternativo
 })
 
 test('sign in with wrong credentials', async ({ page }) => {
